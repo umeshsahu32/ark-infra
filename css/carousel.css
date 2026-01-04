@@ -1,0 +1,251 @@
+/* Carousel Styles */
+.carousel-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.carousel-slide.prev {
+    transform: translateX(-100%);
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Carousel Content Overlay */
+.carousel-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 40px;
+    margin-left: 0;
+}
+
+.carousel-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+}
+
+.carousel-title.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel-subtitle {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 300;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.5;
+}
+
+.carousel-subtitle.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        padding: 0 30px;
+    }
+
+    .carousel-title {
+        font-size: 3rem;
+    }
+
+    .carousel-subtitle {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-section {
+        height: 80vh;
+    }
+
+    .content-wrapper {
+        padding: 0 20px;
+    }
+
+    .carousel-title {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+
+    .carousel-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .carousel-content {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-section {
+        height: 70vh;
+    }
+
+    .content-wrapper {
+        padding: 0 15px;
+    }
+
+    .carousel-title {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+    }
+
+    .carousel-subtitle {
+        font-size: 1rem;
+    }
+
+    .carousel-content {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 70%, transparent 100%);
+    }
+}
+
+/* Carousel Dots Navigation */
+.carousel-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    margin: 0;
+}
+
+.carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+}
+
+.carousel-dot.active {
+    background: #fff;
+    border-color: #fff;
+    width: 14px;
+    height: 14px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive Design for Dots */
+@media (max-width: 768px) {
+    .carousel-dots {
+        bottom: 20px;
+        gap: 10px;
+    }
+
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .carousel-dot.active {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-dots {
+        bottom: 15px;
+        gap: 8px;
+    }
+
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-width: 1.5px;
+    }
+
+    .carousel-dot.active {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Smooth fade effect for content */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
