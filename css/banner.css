@@ -69,10 +69,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
     text-align: center;
     z-index: 2;
     color: #ffffff;
-    max-width: 800px;
     padding: 0 20px;
     opacity: 0;
     animation: fadeInContent 0.8s ease 0.3s forwards;
@@ -186,10 +186,13 @@
     .banner-title {
         font-size: 2rem;
         margin-bottom: 10px;
+        width: 100%;
     }
 
     .banner-description {
         font-size: 1rem;
+        width: 90%;
+        margin: 0 auto;
     }
 
     .banner-dots {

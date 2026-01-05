@@ -24,13 +24,13 @@ body {
 #mainHeader.scrolled {
     background: rgba(255, 255, 255, 0.98);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px 0;
+    padding: 5px 0;
 }
 
 .header-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,9 +42,16 @@ body {
 }
 
 .logo img {
-    height: 50px;
+    height: 60px;
     width: auto;
     object-fit: contain;
+}
+
+/* Header Right Section - Menu + CTA */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 80px;
 }
 
 /* Desktop Navigation */
@@ -95,6 +102,49 @@ body {
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+/* CTA Button */
+.cta-button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    margin-left: 0;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+#mainHeader:not(.scrolled) .cta-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+#mainHeader:not(.scrolled) .cta-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+.mobile-cta {
+    display: none;
 }
 
 /* Hamburger Menu */
@@ -149,7 +199,7 @@ body {
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     transition: right 0.3s ease;
     z-index: 1000;
-    padding-top: 80px;
+    padding: 80px 15px 20px;
     overflow-y: auto;
 }
 
@@ -157,9 +207,18 @@ body {
     right: 0;
 }
 
+.mobile-nav-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 100px);
+    padding: 0;
+}
+
 .mobile-menu {
     list-style: none;
-    padding: 0 20px;
+    padding: 0;
+    margin: 0;
 }
 
 .mobile-menu li {
@@ -202,9 +261,29 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 968px) {
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin-left: 15px;
+    }
+}
+
 @media (max-width: 768px) {
     .desktop-nav {
         display: none;
+    }
+
+    .cta-button {
+        display: none;
+    }
+
+    .mobile-cta {
+        display: block;
+        width: 100%;
+        margin: 20px 0;
+        padding: 15px;
+        font-size: 16px;
     }
 
     .hamburger {
@@ -226,7 +305,7 @@ body {
 
 @media (max-width: 480px) {
     .header-container {
-        padding: 0 15px;
+        padding: 0 10px;
     }
 
     .logo img {
@@ -235,6 +314,7 @@ body {
 
     .mobile-nav {
         width: 250px;
+        padding: 80px 10px 20px;
     }
 }
 

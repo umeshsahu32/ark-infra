@@ -3,44 +3,40 @@ document.addEventListener("DOMContentLoaded", function () {
   // Projects data array
   const projectsData = [
     {
-      image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80",
-      title: "Skyline Tower Complex",
+      image: "assets/Ark_Builder/Landmark/Safran.webp",
+      title: "Safran Test Cell",
       description:
-        "A state-of-the-art residential and commercial complex spanning 50 floors, featuring modern architecture, sustainable design, and premium amenities. This landmark project showcases our expertise in high-rise construction with cutting-edge technology and eco-friendly materials.",
-      alt: "Skyline Tower Complex - Modern high-rise building project",
+        "Ark Builders delivered the Safran Test Cell for an international aircraft engine manufacturer, executing FM2-grade industrial flooring over 40,000 sq. ft. in a continuous 20-hour pour with 3 mm tolerance. The project required millimetre-level precision, strict adherence to international quality and safety standards, and coordinated execution across civil, structural, and MEP disciplines.",
+      alt: "Safran Test Cell",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
-      title: "Metro Infrastructure Hub",
+      image: "assets/Ark_Builder/Landmark/TATA.webp",
+      title: "Tata Boeing / Tata Aerospace Projects",
       description:
-        "A comprehensive transportation infrastructure project connecting multiple city districts. This massive undertaking includes underground stations, elevated tracks, and integrated commercial spaces, demonstrating our capability in large-scale infrastructure development.",
-      alt: "Metro Infrastructure Hub - Transportation infrastructure project",
+        "Ark Builders executed precision-driven construction works for Tata Boeing and Tata Aerospace projects, meeting stringent international requirements for quality, safety, documentation, and timelines through disciplined execution and multi-package coordination.",
+      alt: "Tata Boeing / Tata Aerospace Projects",
+    },
+
+    {
+      image: "assets/Ark_Builder/Landmark/Pullela_Gopichand.webp",
+      title: "Pullela Gopichand Badminton Academy – Expansion Project",
+      description:
+        "Ark Builders executed the civil and structural works for the expansion of the Pullela Gopichand Badminton Academy, covering approximately 1.65 lakh sq. ft. The project involved large-span and high-level structural elements, demanding precise execution and rigorous quality control.",
+      alt: "Pullela Gopichand Badminton Academy – Expansion Project",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80",
-      title: "Green Valley Residential",
+      image: "assets/Ark_Builder/Landmark/ARC.webp",
+      title: "ARC International (Department of Science & Technology)",
       description:
-        "An eco-friendly residential community featuring sustainable housing, solar power integration, and green spaces. This project reflects our commitment to environmental responsibility while delivering comfortable, modern living spaces for families.",
-      alt: "Green Valley Residential - Eco-friendly residential community",
+        "Ark Builders executed the construction of laboratory, office, and canteen buildings involving RCC framework, folded plate roofs, and RCC and steel roof systems. The scope included finishing works and essential infrastructure such as roads, drainage, ground-level reservoirs, and overhead tanks, delivered under Civil Packages II and III.",
+      alt: "ARC International (Department of Science & Technology)",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80",
-      title: "Tech Park Innovation Center",
+      image: "assets/Ark_Builder/Landmark/Heavy_water_Board.webp",
+      title: "Nuclear Fuel Complex (Department of Atomic Energy)",
       description:
-        "A modern business district designed for technology companies, featuring smart building systems, high-speed connectivity, and collaborative workspaces. This project represents the future of commercial construction with integrated smart technologies.",
-      alt: "Tech Park Innovation Center - Modern business district",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80",
-      title: "Coastal Bridge Project",
-      description:
-        "An engineering marvel connecting two major coastal regions, this suspension bridge spans over 2 kilometers with advanced structural design. The project showcases our expertise in complex infrastructure engineering and precision construction.",
-      alt: "Coastal Bridge Project - Suspension bridge infrastructure",
+        "Ark Builders executed the Overhead Tank, Ground Level Reservoir, and Pump House–cum–Water Treatment Plant for the Nuclear Fuel Complex, Hyderabad, as part of the NZFP facility. The project included a 50-metre-high overhead tank delivered in 2012, supporting the production of O-18 heavy water used in cancer treatment, and required strict adherence to nuclear safety and quality standards.",
+      alt: "Nuclear Fuel Complex (Department of Atomic Energy)",
     },
   ];
 
@@ -135,7 +131,10 @@ document.addEventListener("DOMContentLoaded", function () {
       if (index === 0) {
         dot.classList.add("active");
       }
-      dot.setAttribute("aria-label", `Go to project ${index + 1}: ${project.title}`);
+      dot.setAttribute(
+        "aria-label",
+        `Go to project ${index + 1}: ${project.title}`
+      );
       dot.setAttribute("role", "tab");
       dot.setAttribute("aria-selected", index === 0 ? "true" : "false");
       dot.setAttribute("tabindex", index === 0 ? "0" : "-1");
@@ -239,7 +238,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Pause auto-slide on hover (optional enhancement)
   function setupHoverPause() {
-    const carouselWrapper = document.querySelector(".projects-carousel-wrapper");
+    const carouselWrapper = document.querySelector(
+      ".projects-carousel-wrapper"
+    );
     if (carouselWrapper) {
       carouselWrapper.addEventListener("mouseenter", stopAutoSlide);
       carouselWrapper.addEventListener("mouseleave", startAutoSlide);
@@ -271,5 +272,139 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize on load
   initProjects();
-});
 
+  // ============================================
+  // Expandable Projects Section
+  // ============================================
+
+  // All projects data organized by category - Simple array format
+  const allProjectsData = {
+    industrial: [
+      "Safran Test Cell",
+      "Tata Boeing / Tata Aerospace Projects",
+      "Mahindra Industrial Facility",
+      "JBM Group Manufacturing Plant",
+      "Schneider Electric Factory",
+      "Heavy Machinery Manufacturing Unit",
+    ],
+    institutional: [
+      "Pullela Gopichand Badminton Academy – Expansion Project",
+      "ARC International (Department of Science & Technology)",
+      "Nuclear Fuel Complex (Department of Atomic Energy)",
+      "Government Medical College",
+      "Engineering College Campus",
+      "Research & Development Center",
+      "Public School Complex",
+    ],
+    residential: [
+      "Luxury Residential Complex - Phase 1",
+      "Affordable Housing Project",
+      "Gated Community Development",
+      "Apartment Complex - Tower A",
+      "Villa Project - Premium Segment",
+      "Residential Township",
+    ],
+  };
+
+  const showMoreBtn = document.getElementById("showMoreProjectsBtn");
+  const allProjectsSection = document.getElementById("allProjectsSection");
+  const projectsGrid = document.getElementById("projectsGrid");
+  const projectTabs = document.querySelectorAll(".project-tab");
+  let isExpanded = false;
+  let currentCategory = "all";
+
+  // Create project list item
+  function createProjectListItem(projectName, index) {
+    const listItem = document.createElement("div");
+    listItem.className = "project-list-item";
+    listItem.textContent = projectName;
+    return listItem;
+  }
+
+  // Render projects based on category
+  function renderProjects(category = "all") {
+    projectsGrid.innerHTML = "";
+
+    let projectsToShow = [];
+
+    if (category === "all") {
+      // Combine all categories
+      Object.values(allProjectsData).forEach((categoryProjects) => {
+        projectsToShow = projectsToShow.concat(categoryProjects);
+      });
+    } else {
+      projectsToShow = allProjectsData[category] || [];
+    }
+
+    projectsToShow.forEach((projectName, index) => {
+      const listItem = createProjectListItem(projectName, index);
+      listItem.style.opacity = "0";
+      listItem.style.transform = "translateX(-20px)";
+      projectsGrid.appendChild(listItem);
+
+      // Animate in
+      setTimeout(() => {
+        listItem.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+        listItem.style.opacity = "1";
+        listItem.style.transform = "translateX(0)";
+      }, index * 30);
+    });
+  }
+
+  // Toggle expand/collapse
+  function toggleProjectsSection() {
+    isExpanded = !isExpanded;
+
+    if (isExpanded) {
+      allProjectsSection.classList.add("expanded");
+      showMoreBtn.querySelector(".btn-text").textContent = "Show Less Projects";
+      showMoreBtn.querySelector(".btn-icon").style.transform = "rotate(180deg)";
+
+      // Render projects on first expand
+      if (projectsGrid.children.length === 0) {
+        renderProjects(currentCategory);
+      }
+
+      // Smooth scroll to section
+      setTimeout(() => {
+        allProjectsSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
+    } else {
+      allProjectsSection.classList.remove("expanded");
+      showMoreBtn.querySelector(".btn-text").textContent = "Show More Projects";
+      showMoreBtn.querySelector(".btn-icon").style.transform = "rotate(0deg)";
+    }
+  }
+
+  // Handle tab clicks
+  function handleTabClick(tab) {
+    const category = tab.dataset.category;
+
+    // Update active tab
+    projectTabs.forEach((t) => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    // Update current category and render
+    currentCategory = category;
+    renderProjects(category);
+  }
+
+  // Initialize expandable projects section
+  function initExpandableProjects() {
+    // Show more button event
+    if (showMoreBtn) {
+      showMoreBtn.addEventListener("click", toggleProjectsSection);
+    }
+
+    // Tab click events
+    projectTabs.forEach((tab) => {
+      tab.addEventListener("click", () => handleTabClick(tab));
+    });
+  }
+
+  // Initialize expandable projects
+  initExpandableProjects();
+});

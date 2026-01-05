@@ -63,6 +63,36 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', smoothScroll);
     });
 
+    // CTA Button - Scroll to contact form
+    const requestCallbackBtn = document.getElementById('requestCallbackBtn');
+    const requestCallbackBtnMobile = document.getElementById('requestCallbackBtnMobile');
+    
+    function scrollToContact(e) {
+        e.preventDefault();
+        const contactSection = document.querySelector('#contact');
+        
+        if (contactSection) {
+            const headerHeight = header.offsetHeight;
+            const targetPosition = contactSection.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Close mobile menu after clicking
+            closeMobileMenu();
+        }
+    }
+
+    if (requestCallbackBtn) {
+        requestCallbackBtn.addEventListener('click', scrollToContact);
+    }
+
+    if (requestCallbackBtnMobile) {
+        requestCallbackBtnMobile.addEventListener('click', scrollToContact);
+    }
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
         if (mobileNav.classList.contains('active') && 

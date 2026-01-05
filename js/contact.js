@@ -6,40 +6,77 @@ document.addEventListener("DOMContentLoaded", function () {
   const successMessage = document.getElementById("successMessage");
 
   // Get form fields
-  const fullNameInput = document.getElementById("fullName");
-  const emailInput = document.getElementById("email");
+  const firstNameInput = document.getElementById("firstName");
+  const lastNameInput = document.getElementById("lastName");
+  const designationInput = document.getElementById("designation");
+  const companyInput = document.getElementById("company");
+  const businessEmailInput = document.getElementById("businessEmail");
   const phoneInput = document.getElementById("phone");
-  const subjectInput = document.getElementById("subject");
   const messageInput = document.getElementById("message");
 
   // Get error message elements
-  const fullNameError = document.getElementById("fullNameError");
-  const emailError = document.getElementById("emailError");
+  const firstNameError = document.getElementById("firstNameError");
+  const lastNameError = document.getElementById("lastNameError");
+  const designationError = document.getElementById("designationError");
+  const companyError = document.getElementById("companyError");
+  const businessEmailError = document.getElementById("businessEmailError");
   const phoneError = document.getElementById("phoneError");
-  const subjectError = document.getElementById("subjectError");
   const messageError = document.getElementById("messageError");
 
   // Validation functions
-  function validateFullName(name) {
+  function validateFirstName(name) {
     if (!name || name.trim() === "") {
-      return "Full name is required";
+      return "First name is required";
     }
     if (name.trim().length < 2) {
-      return "Full name must be at least 2 characters";
+      return "First name must be at least 2 characters";
     }
     if (!/^[a-zA-Z\s]+$/.test(name.trim())) {
-      return "Full name should only contain letters and spaces";
+      return "First name should only contain letters and spaces";
     }
     return "";
   }
 
-  function validateEmail(email) {
+  function validateLastName(name) {
+    if (!name || name.trim() === "") {
+      return "Last name is required";
+    }
+    if (name.trim().length < 2) {
+      return "Last name must be at least 2 characters";
+    }
+    if (!/^[a-zA-Z\s]+$/.test(name.trim())) {
+      return "Last name should only contain letters and spaces";
+    }
+    return "";
+  }
+
+  function validateDesignation(designation) {
+    if (!designation || designation.trim() === "") {
+      return "Designation is required";
+    }
+    if (designation.trim().length < 2) {
+      return "Designation must be at least 2 characters";
+    }
+    return "";
+  }
+
+  function validateCompany(company) {
+    if (!company || company.trim() === "") {
+      return "Company is required";
+    }
+    if (company.trim().length < 2) {
+      return "Company name must be at least 2 characters";
+    }
+    return "";
+  }
+
+  function validateBusinessEmail(email) {
     if (!email || email.trim() === "") {
-      return "Email is required";
+      return "Business email is required";
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.trim())) {
-      return "Please enter a valid email address";
+      return "Please enter a valid business email address";
     }
     return "";
   }
@@ -53,16 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Allow digits, +, and - with at least 10 digits
     if (!/^[\+]?[0-9]{10,15}$/.test(cleanedPhone)) {
       return "Please enter a valid phone number (10-15 digits)";
-    }
-    return "";
-  }
-
-  function validateSubject(subject) {
-    if (!subject || subject.trim() === "") {
-      return "Subject is required";
-    }
-    if (subject.trim().length < 3) {
-      return "Subject must be at least 3 characters";
     }
     return "";
   }
@@ -100,24 +127,57 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Real-time validation
-  fullNameInput.addEventListener("blur", function () {
-    const error = validateFullName(this.value);
+  firstNameInput.addEventListener("blur", function () {
+    const error = validateFirstName(this.value);
     if (error) {
-      showError(fullNameError, error);
+      showError(firstNameError, error);
       addErrorClass(this);
     } else {
-      clearError(fullNameError);
+      clearError(firstNameError);
       removeErrorClass(this);
     }
   });
 
-  emailInput.addEventListener("blur", function () {
-    const error = validateEmail(this.value);
+  lastNameInput.addEventListener("blur", function () {
+    const error = validateLastName(this.value);
     if (error) {
-      showError(emailError, error);
+      showError(lastNameError, error);
       addErrorClass(this);
     } else {
-      clearError(emailError);
+      clearError(lastNameError);
+      removeErrorClass(this);
+    }
+  });
+
+  designationInput.addEventListener("blur", function () {
+    const error = validateDesignation(this.value);
+    if (error) {
+      showError(designationError, error);
+      addErrorClass(this);
+    } else {
+      clearError(designationError);
+      removeErrorClass(this);
+    }
+  });
+
+  companyInput.addEventListener("blur", function () {
+    const error = validateCompany(this.value);
+    if (error) {
+      showError(companyError, error);
+      addErrorClass(this);
+    } else {
+      clearError(companyError);
+      removeErrorClass(this);
+    }
+  });
+
+  businessEmailInput.addEventListener("blur", function () {
+    const error = validateBusinessEmail(this.value);
+    if (error) {
+      showError(businessEmailError, error);
+      addErrorClass(this);
+    } else {
+      clearError(businessEmailError);
       removeErrorClass(this);
     }
   });
@@ -129,17 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
       addErrorClass(this);
     } else {
       clearError(phoneError);
-      removeErrorClass(this);
-    }
-  });
-
-  subjectInput.addEventListener("blur", function () {
-    const error = validateSubject(this.value);
-    if (error) {
-      showError(subjectError, error);
-      addErrorClass(this);
-    } else {
-      clearError(subjectError);
       removeErrorClass(this);
     }
   });
@@ -156,16 +205,37 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Clear errors on input
-  fullNameInput.addEventListener("input", function () {
+  firstNameInput.addEventListener("input", function () {
     if (this.classList.contains("error")) {
-      clearError(fullNameError);
+      clearError(firstNameError);
       removeErrorClass(this);
     }
   });
 
-  emailInput.addEventListener("input", function () {
+  lastNameInput.addEventListener("input", function () {
     if (this.classList.contains("error")) {
-      clearError(emailError);
+      clearError(lastNameError);
+      removeErrorClass(this);
+    }
+  });
+
+  designationInput.addEventListener("input", function () {
+    if (this.classList.contains("error")) {
+      clearError(designationError);
+      removeErrorClass(this);
+    }
+  });
+
+  companyInput.addEventListener("input", function () {
+    if (this.classList.contains("error")) {
+      clearError(companyError);
+      removeErrorClass(this);
+    }
+  });
+
+  businessEmailInput.addEventListener("input", function () {
+    if (this.classList.contains("error")) {
+      clearError(businessEmailError);
       removeErrorClass(this);
     }
   });
@@ -173,13 +243,6 @@ document.addEventListener("DOMContentLoaded", function () {
   phoneInput.addEventListener("input", function () {
     if (this.classList.contains("error")) {
       clearError(phoneError);
-      removeErrorClass(this);
-    }
-  });
-
-  subjectInput.addEventListener("input", function () {
-    if (this.classList.contains("error")) {
-      clearError(subjectError);
       removeErrorClass(this);
     }
   });
@@ -196,38 +259,69 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
 
     // Get form values
-    const fullName = fullNameInput.value.trim();
-    const email = emailInput.value.trim();
+    const firstName = firstNameInput.value.trim();
+    const lastName = lastNameInput.value.trim();
+    const designation = designationInput.value.trim();
+    const company = companyInput.value.trim();
+    const businessEmail = businessEmailInput.value.trim();
     const phone = phoneInput.value.trim();
-    const subject = subjectInput.value.trim();
     const message = messageInput.value.trim();
 
     // Validate all fields
-    const fullNameErrorMsg = validateFullName(fullName);
-    const emailErrorMsg = validateEmail(email);
+    const firstNameErrorMsg = validateFirstName(firstName);
+    const lastNameErrorMsg = validateLastName(lastName);
+    const designationErrorMsg = validateDesignation(designation);
+    const companyErrorMsg = validateCompany(company);
+    const businessEmailErrorMsg = validateBusinessEmail(businessEmail);
     const phoneErrorMsg = validatePhone(phone);
-    const subjectErrorMsg = validateSubject(subject);
     const messageErrorMsg = validateMessage(message);
 
     let hasErrors = false;
 
     // Display errors
-    if (fullNameErrorMsg) {
-      showError(fullNameError, fullNameErrorMsg);
-      addErrorClass(fullNameInput);
+    if (firstNameErrorMsg) {
+      showError(firstNameError, firstNameErrorMsg);
+      addErrorClass(firstNameInput);
       hasErrors = true;
     } else {
-      clearError(fullNameError);
-      removeErrorClass(fullNameInput);
+      clearError(firstNameError);
+      removeErrorClass(firstNameInput);
     }
 
-    if (emailErrorMsg) {
-      showError(emailError, emailErrorMsg);
-      addErrorClass(emailInput);
+    if (lastNameErrorMsg) {
+      showError(lastNameError, lastNameErrorMsg);
+      addErrorClass(lastNameInput);
       hasErrors = true;
     } else {
-      clearError(emailError);
-      removeErrorClass(emailInput);
+      clearError(lastNameError);
+      removeErrorClass(lastNameInput);
+    }
+
+    if (designationErrorMsg) {
+      showError(designationError, designationErrorMsg);
+      addErrorClass(designationInput);
+      hasErrors = true;
+    } else {
+      clearError(designationError);
+      removeErrorClass(designationInput);
+    }
+
+    if (companyErrorMsg) {
+      showError(companyError, companyErrorMsg);
+      addErrorClass(companyInput);
+      hasErrors = true;
+    } else {
+      clearError(companyError);
+      removeErrorClass(companyInput);
+    }
+
+    if (businessEmailErrorMsg) {
+      showError(businessEmailError, businessEmailErrorMsg);
+      addErrorClass(businessEmailInput);
+      hasErrors = true;
+    } else {
+      clearError(businessEmailError);
+      removeErrorClass(businessEmailInput);
     }
 
     if (phoneErrorMsg) {
@@ -237,15 +331,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       clearError(phoneError);
       removeErrorClass(phoneInput);
-    }
-
-    if (subjectErrorMsg) {
-      showError(subjectError, subjectErrorMsg);
-      addErrorClass(subjectInput);
-      hasErrors = true;
-    } else {
-      clearError(subjectError);
-      removeErrorClass(subjectInput);
     }
 
     if (messageErrorMsg) {
@@ -277,10 +362,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Form data object
       const formData = {
-        fullName: fullName,
-        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        designation: designation,
+        company: company,
+        businessEmail: businessEmail,
         phone: phone,
-        subject: subject,
         message: message,
       };
 

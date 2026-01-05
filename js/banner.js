@@ -21,10 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       image:
         "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80",
-      title: "Life at Ark Group",
+      title: "Life at Ark Builders",
       description:
         "Building a culture of excellence, innovation, and collaboration",
-      alt: "Life at Ark Group - Our team and workplace culture",
+      alt: "Life at Ark Builders - Our team and workplace culture",
     },
   ];
 
