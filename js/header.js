@@ -41,8 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const targetSection = document.querySelector(targetId);
         
         if (targetSection) {
+            const contactStrip = document.querySelector('.contact-strip');
+            const contactStripHeight = contactStrip ? contactStrip.offsetHeight : 0;
             const headerHeight = header.offsetHeight;
-            const targetPosition = targetSection.offsetTop - headerHeight;
+            const targetPosition = targetSection.offsetTop - headerHeight - contactStripHeight;
             
             window.scrollTo({
                 top: targetPosition,
@@ -72,8 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const contactSection = document.querySelector('#contact');
         
         if (contactSection) {
+            const contactStrip = document.querySelector('.contact-strip');
+            const contactStripHeight = contactStrip ? contactStrip.offsetHeight : 0;
             const headerHeight = header.offsetHeight;
-            const targetPosition = contactSection.offsetTop - headerHeight;
+            const targetPosition = contactSection.offsetTop - headerHeight - contactStripHeight;
             
             window.scrollTo({
                 top: targetPosition,
