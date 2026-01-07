@@ -42,6 +42,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const videosGallery = document.getElementById("videosGallery");
 
+  // If the videos section is not present in the HTML, skip initializing
+  if (!videosGallery) {
+    return;
+  }
+
   // Create video card
   function createVideoCard(video, index) {
     const videoCard = document.createElement("div");

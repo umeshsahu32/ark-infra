@@ -48,6 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const mediaGallery = document.getElementById("mediaGallery");
 
+  // If the media section is not present in the HTML, skip initializing
+  if (!mediaGallery) {
+    return;
+  }
+
   // Create article card
   function createArticleCard(article, index) {
     const articleCard = document.createElement("div");

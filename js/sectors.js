@@ -31,7 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const sectorsGrid = document.getElementById("sectorsGrid");
   const showMoreBtn = document.getElementById("showMoreBtn");
 
-  let visibleCount = 4; // Show 3 cards initially
+  // If the sectors section is not present in the HTML, skip initializing
+  if (!sectorsGrid) {
+    return;
+  }
+
+  let visibleCount = 4; // Show 4 cards initially
   const cardsPerLoad = 4; // Load 3 more cards each time
 
   // Create a single sector card
@@ -113,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
     visibleCount = nextCount;
 
     // Hide button if all cards are shown
-    if (visibleCount >= sectorsData.length) {
+    if (visibleCount >= sectorsData.length && showMoreBtn) {
       showMoreBtn.classList.add("hidden");
     }
   }
@@ -122,12 +127,14 @@ document.addEventListener("DOMContentLoaded", function () {
   function initSectors() {
     createAllCards();
 
-    // Event listener for show more button
-    showMoreBtn.addEventListener("click", showMoreCards);
+    // Event listener for show more button (only if it exists)
+    if (showMoreBtn) {
+      showMoreBtn.addEventListener("click", showMoreCards);
 
-    // Hide button if all cards are already visible
-    if (visibleCount >= sectorsData.length) {
-      showMoreBtn.classList.add("hidden");
+      // Hide button if all cards are already visible
+      if (visibleCount >= sectorsData.length) {
+        showMoreBtn.classList.add("hidden");
+      }
     }
   }
 
