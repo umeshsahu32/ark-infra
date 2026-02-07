@@ -255,6 +255,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Form submission
+  // Google Apps Script Web App URL
+  // TODO: Replace with your actual Web App URL
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxAY6SOwsZsHYv74VVcq94zZhPQonmS4UbsbCIB012H_a1kUAej6MMqWNdTtMWYpnI3vA/exec";
+
+  // Form submission
   contactForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -355,12 +360,14 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.disabled = true;
     submitBtn.querySelector(".btn-text").textContent = "Submitting...";
 
-    // Simulate form submission (replace with actual API call)
     try {
-      // Simulate API delay
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Check if URL is configured
+      if (GOOGLE_SCRIPT_URL === "YOUR_WEB_APP_URL_HERE") {
+        throw new Error(
+          "Google Apps Script URL is not configured. Please check the code."
+        );
+      }
 
-      // Form data object
       const formData = {
         firstName: firstName,
         lastName: lastName,
@@ -369,23 +376,45 @@ document.addEventListener("DOMContentLoaded", function () {
         businessEmail: businessEmail,
         phone: phone,
         message: message,
+        timestamp: new Date().toISOString(),
       };
 
-      // Form submitted successfully (console.log removed for production)
+      // Send data to Google Apps Script
+      // mode: 'no-cors' is often needed for Google Apps Script simple triggers,
+      // but 'cors' works if the script returns proper headers.
+      // Using 'text/plain' to avoid preflight OPTION request which Apps Script doesn't handle well
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+      });
 
-      // Here you would typically send the data to your server
-      // Example: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) });
+      // With no-cors/opaque response, we might not get 200 OK visible here if validation fails script-side,
+      // but for this simple use case, we assume if fetch doesn't throw, it likely went through or at least reached the server.
+      // If you deploy the web app as "Anyone", it usually returns 200.
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const result = await response.json();
+      if (result.result !== 'success') {
+        throw new Error(result.error || 'Submission failed');
+      }
 
       // Store form data in sessionStorage for thank you page
       sessionStorage.setItem("formData", JSON.stringify(formData));
 
-      // Redirect to thank you page after a short delay
-      setTimeout(() => {
-        window.location.href = "thank-you.html";
-      }, 500);
+      // Redirect to thank you page
+      window.location.href = "thank-you.html";
     } catch (error) {
-      // Error handling (console.error removed for production)
-      alert("An error occurred. Please try again later.");
+      console.error("Error:", error);
+      alert(
+        "An error occurred while submitting the form. Please try again later. " +
+        (error.message ? "\nError: " + error.message : "")
+      );
     } finally {
       // Remove loading state
       submitBtn.classList.remove("loading");
