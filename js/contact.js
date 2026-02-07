@@ -259,6 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // TODO: Replace with your actual Web App URL
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxAY6SOwsZsHYv74VVcq94zZhPQonmS4UbsbCIB012H_a1kUAej6MMqWNdTtMWYpnI3vA/exec";
 
+
   // Form submission
   contactForm.addEventListener("submit", async function (e) {
     e.preventDefault();
