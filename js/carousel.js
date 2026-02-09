@@ -1,31 +1,32 @@
 // Carousel JavaScript
+
 document.addEventListener("DOMContentLoaded", function () {
   // Carousel data array
   const carouselData = [
     {
       image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80",
+        "../assets/Ark_Builder/Main Banner/Ark_builder.webp",
       title: "Welcome to Ark Infra",
       subtitle: "Building the future, one project at a time",
     },
-    {
-      image:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80",
-      title: "Excellence in Construction",
-      subtitle: "Delivering quality infrastructure solutions",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80",
-      title: "Innovation & Quality",
-      subtitle: "Transforming visions into reality",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80",
-      title: "Your Trusted Partner",
-      subtitle: "Committed to excellence in every project",
-    },
+    // {
+    //   image:
+    //     "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80",
+    //   title: "Excellence in Construction",
+    //   subtitle: "Delivering quality infrastructure solutions",
+    // },
+    // {
+    //   image:
+    //     "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80",
+    //   title: "Innovation & Quality",
+    //   subtitle: "Transforming visions into reality",
+    // },
+    // {
+    //   image:
+    //     "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80",
+    //   title: "Your Trusted Partner",
+    //   subtitle: "Committed to excellence in every project",
+    // },
   ];
 
   const carouselSlides = document.getElementById("carouselSlides");
@@ -140,10 +141,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Clear interval first to prevent timing issues
     stopAutoSlide();
-    
+
     // Perform slide change
     performSlideChange(index);
-    
+
     // Restart interval with fresh 4-second timer
     startAutoSlide();
   }

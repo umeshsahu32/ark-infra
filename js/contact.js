@@ -409,7 +409,7 @@ document.addEventListener("DOMContentLoaded", function () {
       sessionStorage.setItem("formData", JSON.stringify(formData));
 
       // Redirect to thank you page
-      window.location.href = "thank-you.html";
+      window.location.href = "https://arkgroup.in/";
     } catch (error) {
       console.error("Error:", error);
       alert(
