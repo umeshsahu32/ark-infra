@@ -5,28 +5,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const carouselData = [
     {
       image:
-        "../assets/Ark_Builder/Main Banner/Ark_builder.webp",
+        "../assets/Ark_Builder/Main_Banner/Ark-Builder_Landing-Page_1.webp",
       title: "Welcome to Ark Infra",
       subtitle: "Building the future, one project at a time",
     },
-    // {
-    //   image:
-    //     "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80",
-    //   title: "Excellence in Construction",
-    //   subtitle: "Delivering quality infrastructure solutions",
-    // },
-    // {
-    //   image:
-    //     "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80",
-    //   title: "Innovation & Quality",
-    //   subtitle: "Transforming visions into reality",
-    // },
-    // {
-    //   image:
-    //     "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80",
-    //   title: "Your Trusted Partner",
-    //   subtitle: "Committed to excellence in every project",
-    // },
+    {
+      image:
+        "../assets/Ark_Builder/Main_Banner/Ark-Builder_Landing-Page_2.webp",
+      title: "Excellence in Construction",
+      subtitle: "Delivering quality infrastructure solutions",
+    },
+    {
+      image:
+        "../assets/Ark_Builder/Main_Banner/Ark-Builder_Landing-Page_3.webp",
+      title: "Innovation & Quality",
+      subtitle: "Transforming visions into reality",
+    },
+    {
+      image:
+        "../assets/Ark_Builder/Main_Banner/Ark-Builder_Landing-Page_4.webp",
+      title: "Your Trusted Partner",
+      subtitle: "Committed to excellence in every project",
+    },
   ];
 
   const carouselSlides = document.getElementById("carouselSlides");
