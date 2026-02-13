@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     overflow-x: hidden;
@@ -159,7 +163,8 @@ body {
 /* CTA Button */
 .cta-button {
     padding: 12px 24px;
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    /* background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); */
+    background: linear-gradient(135deg, #d2a557 0%, #e8cc87 100%);
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -175,7 +180,8 @@ body {
 .cta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
-    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    /* background: linear-gradient(135deg, #0056b3 0%, #004085 100%); */
+    background: linear-gradient(135deg, #d2a557 0%, #e8cc87 100%);
 }
 
 .cta-button:active {
@@ -183,14 +189,15 @@ body {
 }
 
 #mainHeader:not(.scrolled) .cta-button {
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
+    /* background: rgba(255, 255, 255, 0.2); */
+    background: linear-gradient(135deg, #d2a557 0%, #e8cc87 100%);
+    /* color: #ffffff; */
+    /* border: 2px solid rgba(255, 255, 255, 0.5); */
+    /* backdrop-filter: blur(10px); */
 }
 
 #mainHeader:not(.scrolled) .cta-button:hover {
-    background: rgba(255, 255, 255, 0.3);
+    /* background: rgba(255, 255, 255, 0.3); */
     border-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }

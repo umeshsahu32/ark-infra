@@ -3,29 +3,29 @@ document.addEventListener("DOMContentLoaded", function () {
   // Sectors data array
   const sectorsData = [
     {
-      image: "assets/sec-8.png",
+      image: "assets/Ark_Builder/Sectors/Industrial.webp",
       title: "Industrial",
       description:
         "We deliver industrial construction projects for national and international brands, executing complex facilities with precision engineering, strict safety compliance, and schedule certainty.",
     },
     {
-      image: "assets/sec-7.png",
+      image: "assets/Ark_Builder/Sectors/Institutional.webp",
       title: "Institutional",
       description:
         "Ark Builders undertakes institutional construction projects that demand accuracy, durability, and regulatory compliance, delivering outcomes aligned with functional and statutory requirements.",
     },
     {
-      image: "assets/sec-1.png",
+      image: "assets/Ark_Builder/Sectors/Residential.webp",
       title: "Residential",
       description:
         "Homebuyers trust Ark Builders for safe, transparent, and high-quality residential construction, supported by professional execution from planning through handover.",
     },
-    {
-      image: "assets/sec-4.png",
-      title: "Others",
-      description:
-        "Beyond core sectors, we execute specialized and custom construction projects, applying the same standards of engineering rigor, quality control, and reliability.",
-    },
+    // {
+    //   image: "assets/sec-4.png",
+    //   title: "Others",
+    //   description:
+    //     "Beyond core sectors, we execute specialized and custom construction projects, applying the same standards of engineering rigor, quality control, and reliability.",
+    // },
   ];
 
   const sectorsGrid = document.getElementById("sectorsGrid");

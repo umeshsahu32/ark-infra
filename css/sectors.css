@@ -2,14 +2,14 @@
 .sectors-section {
     position: relative;
     min-height: 100vh;
-    padding: 100px 20px;
+    padding: 100px 20px 0px 20px;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     overflow: hidden;
 }
 
 .sectors-container {
     position: relative;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     z-index: 1;
 }
@@ -33,17 +33,17 @@
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(to right, #007bff, #0056b3);
+    background: linear-gradient(to right, #d2a557, #e8cc87);
     border-radius: 2px;
 }
 
 .sectors-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
     margin-top: 50px;
     margin-bottom: 50px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -150,7 +150,7 @@
 }
 
 .sector-card:hover .sector-title {
-    color: #007bff;
+    color: #d2a557;
 }
 
 .sector-description {

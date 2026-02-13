@@ -57,7 +57,7 @@
 
 .footer-email svg {
     flex-shrink: 0;
-    color: #007bff;
+    color: #d2a557;
 }
 
 .footer-email a {
@@ -68,7 +68,7 @@
 }
 
 .footer-email a:hover {
-    color: #007bff;
+    color: #d2a557;
 }
 
 /* Middle Column: Quick Links */
@@ -111,7 +111,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #007bff;
+    background: #d2a557;
     transition: width 0.3s ease;
 }
 
@@ -150,8 +150,8 @@
 }
 
 .footer-legal-btn:hover {
-    background: rgba(0, 123, 255, 0.2);
-    border-color: #007bff;
+    background: rgba(210, 165, 87, 0.2);
+    border-color: #d2a557;
     transform: translateX(5px);
 }
 
@@ -182,10 +182,10 @@
 }
 
 .social-link:hover {
-    background: #007bff;
+    background: #d2a557;
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
-    border-color: #007bff;
+    box-shadow: 0 5px 15px rgba(210, 165, 87, 0.4);
+    border-color: #d2a557;
 }
 
 .social-link svg {

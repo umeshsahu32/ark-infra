@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       image:
         "../assets/Ark_Builder/Main_Banner/Ark-Builder_Landing-Page_1.webp",
-      title: "Welcome to Ark Infra",
+      title: "Welcome to Ark Builder",
       subtitle: "Building the future, one project at a time",
     },
     {
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       image:
-        "../assets/Ark_Builder/Main_Banner/Ark-Builder_Landing-Page_3.webp",
+        "../assets/Ark_Builder/Main_Banner/Ark-Builder_Landing-Page_5.jpeg",
       title: "Innovation & Quality",
       subtitle: "Transforming visions into reality",
     },
