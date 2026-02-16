@@ -298,6 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "Bharat Dynamics Ltd, Bhanur, Medak Dist.",
       "Team Asia Semi Conductors Ltd, Hyderabad",
       "Food Corporation of India, Hyderabad",
+      "Safran Aero Space"
     ],
     institutional: [
       "Vasavi Educational Society",
@@ -308,6 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "Sri Venkateshwara Engineering College Suryapet",
       "Katragadda Innovative Trust for Education, Hyderabad",
       "Karshak Vidya Parishad, Hyderabad",
+      "TSUSS Sri Ram Universal School",
     ],
     residential: [
       "Terminus The Pointe",

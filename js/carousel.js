@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       image:
         "../assets/Ark_Builder/Main_Banner/Ark-Builder_Landing-Page_1.webp",
-      title: "Welcome to Ark Builder",
+      title: "Welcome to Ark Builders",
       subtitle: "Building the future, one project at a time",
     },
     {
